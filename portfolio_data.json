@@ -1,0 +1,45 @@
+{
+  "personal": {
+    "name": "Audry Ashleen Chivanga",
+    "email": "audryashleenchivanga@gmail.com",
+    "linkedin": "https://www.linkedin.com/in/audry-ashleen-chivanga-081175231/",
+    "github": "https://github.com/AudryAshleenChivanga",
+    "program": "BSE (Bachelor of Software Engineering)"
+  },
+  "mission": {
+    "pathways": ["Healthcare", "Women Empowerment"],
+    "statement": "My mission is to harness technology to transform traditional healthcare systems across Africa by addressing critical challenges such as diagnostic inefficiencies, delays in service delivery, and gaps in women's health. I aim to build digital platforms that enhance patient outcomes and make healthcare more accessible, efficient, and equitable.",
+    "narrative": "In many African healthcare systems, the burden of long wait times and inefficiencies in service delivery is more than just an inconvenience—it is a threat to lives. I remember sitting in a hospital waiting room for over five hours, watching patients, many elderly and some in visible pain, wait endlessly just to be seen by a doctor. That experience led me to build Mediqueueless, a digital solution aimed at eliminating waiting queues by automating patient intake and triage, making healthcare access faster and more dignified.\n\nOn another front, I witnessed how women and girls, especially in underserved communities, lacked access to vital education on reproductive health. This inspired me to volunteer with Girl Up International, where I launched AshleTech Connect SRHR, a digital outreach initiative that won the 2024 Project Award for its impact in educating young women on menstrual and sexual health.\n\nMy motivation deepened in 2024 when I personally faced a delayed diagnosis of a gastrointestinal condition. What began as minor discomfort quickly escalated into a near critical situation, stirring fears of ulcers and even stomach cancer. That moment became a turning point. For my capstone project, I am developing an AI powered diagnostic support system focused on improving the early detection of gastrointestinal diseases in Rwanda.\n\nEach of these experiences, whether standing in hospital queues, advocating for women's health, or navigating the healthcare system myself, reflects the deep structural gaps I hope to help amend. My mission is to use technology to reimagine traditional healthcare systems in Africa, improving diagnosis, speeding up service delivery, and ensuring no woman or patient is left behind due to lack of access or education."
+  },
+  "experience": [
+    {
+      "id": 1,
+      "title": "Perception & Data Annotation Intern",
+      "organization": "Zipline Rwanda",
+      "location": "Rwanda",
+      "date": "2025 Aug - Present",
+      "description": "Current role focusing on perception systems and data annotation for drone delivery healthcare solutions.",
+      "type": "work"
+    }
+  ],
+  "projects": [
+    {
+      "id": 1,
+      "name": "Mediqueueless",
+      "description": "Digital solution aimed at eliminating waiting queues by automating patient intake and triage, making healthcare access faster and more dignified.",
+      "tags": ["Healthcare Tech", "Queue Management", "Patient Care"],
+      "featured": true,
+      "award": "",
+      "url": ""
+    },
+    {
+      "id": 2,
+      "name": "AshleTech Connect SRHR",
+      "description": "Digital outreach initiative that won the 2024 Project Award for its impact in educating young women on menstrual and sexual health.",
+      "tags": ["Women's Health", "SRHR Education", "Digital Platform"],
+      "featured": true,
+      "award": "2024 Project Award Winner",
+      "url": ""
+    }
+  ]
+}

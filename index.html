@@ -3,24 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Audry Ashleen Chivanga - Software Engineering Student</title>
-    <meta name="description" content="Personal website of Audry Ashleen Chivanga - Software Engineering Student, Data Analyst & Researcher">
+    <title>Audry Ashleen Chivanga | Software Engineer & Social Innovator</title>
+    <meta name="description" content="Audry Ashleen Chivanga - Software Engineering student, Founder of Mediqueueless, and emerging leader transforming healthcare through technology across Africa.">
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+    <!-- Cursor follower -->
+    <div class="cursor-follower"></div>
+    
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
-            <a href="#home" class="nav-logo">Audry Chivanga</a>
+            <a href="#home" class="nav-logo">
+                <span class="logo-text">AAC</span>
+            </a>
             <div class="nav-menu" id="nav-menu">
-                <a href="#home" class="nav-link" data-section="home">Home</a>
+                <a href="#home" class="nav-link active" data-section="home">Home</a>
                 <a href="#about" class="nav-link" data-section="about">About</a>
-                <a href="#skills" class="nav-link" data-section="skills">Skills</a>
-                <a href="#projects" class="nav-link" data-section="projects">Projects</a>
+                <a href="#experience" class="nav-link" data-section="experience">Experience</a>
+                <a href="#startup" class="nav-link" data-section="startup">Startup</a>
+                <a href="#gallery" class="nav-link" data-section="gallery">Gallery</a>
                 <a href="#achievements" class="nav-link" data-section="achievements">Achievements</a>
                 <a href="#contact" class="nav-link" data-section="contact">Contact</a>
             </div>
@@ -34,39 +40,66 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
+        <div class="hero-bg-pattern"></div>
         <div class="hero-container">
             <div class="hero-content">
+                <div class="hero-tag">
+                    <span class="tag-icon">✦</span>
+                    <span>Software Engineer • Social Innovator • Emerging Leader</span>
+                </div>
                 <h1 class="hero-title">
-                    Hi, I'm <span class="highlight">Audry Ashleen Chivanga</span>
+                    <span class="title-line">Audry Ashleen</span>
+                    <span class="title-line accent">Chivanga</span>
                 </h1>
-                <p class="hero-subtitle">Software Engineering Student & Data Analyst</p>
                 <p class="hero-description">
-                    I'm passionate about leveraging technology and data to solve real-world problems, with experience in software development, geospatial analysis, and research across healthcare and environmental conservation.
+                    Building technology that transforms lives across Africa. From drone perception systems at <strong>Zipline</strong> to founding <strong>Mediqueueless</strong> — a digital healthcare platform reducing patient waiting times in African hospitals. Selected as 1 of 14 students globally for the <strong>Silicon Valley Global Leadership Program</strong>.
                 </p>
                 <div class="hero-buttons">
-                    <a href="#projects" class="btn btn-primary">View My Work</a>
-                    <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                    <a href="#startup" class="btn btn-primary">
+                        <span>Watch My Story</span>
+                        <i class="fas fa-play"></i>
+                    </a>
+                    <a href="#contact" class="btn btn-secondary">
+                        <span>Get In Touch</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
                 <div class="hero-social">
-                    <a href="https://github.com/audryashleenchivanga" class="social-link" aria-label="GitHub">
+                    <a href="https://github.com/audryashleenchivanga" class="social-link" aria-label="GitHub" target="_blank">
                         <i class="fab fa-github"></i>
                     </a>
-                    <a href="https://linkedin.com/in/audry-chivanga" class="social-link" aria-label="LinkedIn">
+                    <a href="https://linkedin.com/in/audry-chivanga" class="social-link" aria-label="LinkedIn" target="_blank">
                         <i class="fab fa-linkedin"></i>
                     </a>
                     <a href="mailto:a.chivanga@alustudent.com" class="social-link" aria-label="Email">
                         <i class="fas fa-envelope"></i>
                     </a>
+                    <a href="tel:+250792403016" class="social-link" aria-label="Phone">
+                        <i class="fas fa-phone"></i>
+                    </a>
                 </div>
             </div>
             <div class="hero-image">
-                <div class="hero-avatar">
-                    <img src="https://via.placeholder.com/300x300/4f46e5/ffffff?text=AC" alt="Audry Ashleen Chivanga" class="avatar-img">
+                <div class="image-frame">
+                    <div class="frame-decoration top-left"></div>
+                    <div class="frame-decoration top-right"></div>
+                    <div class="frame-decoration bottom-left"></div>
+                    <div class="frame-decoration bottom-right"></div>
+                    <img src="images/audry_pic124.jpg" alt="Audry Ashleen Chivanga" class="hero-photo">
+                </div>
+                <div class="floating-badge badge-1">
+                    <i class="fas fa-award"></i>
+                    <span>Mastercard Scholar</span>
+                </div>
+                <div class="floating-badge badge-2">
+                    <i class="fas fa-rocket"></i>
+                    <span>Founder</span>
                 </div>
             </div>
         </div>
         <div class="scroll-indicator">
-            <div class="scroll-arrow"></div>
+            <span>Scroll to explore</span>
+            <div class="scroll-line"></div>
         </div>
     </section>
 
@@ -74,37 +107,481 @@
     <section id="about" class="about">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">About Me</h2>
-                <p class="section-subtitle">Get to know me better</p>
+                <span class="section-tag">About Me</span>
+                <h2 class="section-title">Driven by Purpose,<br>Powered by Innovation</h2>
             </div>
             <div class="about-content">
+                <div class="about-image-container">
+                    <div class="about-image-wrapper">
+                        <img src="images/audry_iwd_kigali2024.jpg" alt="Audry at International Women's Day Kigali 2024" class="about-img">
+                    </div>
+                    <div class="about-image-bg"></div>
+                </div>
                 <div class="about-text">
-                    <p class="about-paragraph">
-                        I'm a dedicated Software Engineering student at The African Leadership University, Rwanda, and a Mastercard Foundation Scholarship recipient. My passion lies in leveraging technology and data analytics to solve complex real-world problems, particularly in healthcare, environmental conservation, and social impact.
-                    </p>
-                    <p class="about-paragraph">
-                        My experience spans from perception annotation at Zipline Rwanda to geospatial data visualization with National Geographic Society. I've had the privilege of being selected for the prestigious Silicon Valley Global Leadership Program, where I learned from top tech companies like Google, Microsoft, and AWS. I'm also involved in cutting-edge research, including predictive analysis for African healthcare systems.
-                    </p>
-                    <p class="about-paragraph">
-                        Beyond academics, I'm committed to leadership development and have been selected for prestigious programs including Harvard Aspire Leader's Program, Millennium Fellowship, and McKinsey Forward. I believe in using technology not just to build solutions, but to create meaningful impact in communities across Africa and beyond.
-                    </p>
+                    <div class="about-intro">
+                        <p class="lead-text">
+                            I'm a <strong>Mastercard Foundation Scholar</strong> pursuing a Bachelor of Science in Software Engineering at <strong>The African Leadership University</strong> in Kigali, Rwanda. My mission is clear: leverage technology to solve Africa's most pressing challenges.
+                        </p>
+                    </div>
+                    <div class="about-paragraphs">
+                        <p>
+                            My journey has taken me from the innovation hubs of <strong>Silicon Valley</strong> — where I learned from leaders at Microsoft, Google X, AWS, Intel, and Coursera — to the frontlines of healthcare innovation in Africa. As the founder of <strong>Mediqueueless</strong>, I'm building a digital platform that's transforming how patients experience healthcare across the continent.
+                        </p>
+                        <p>
+                            Currently, I work at <strong>Zipline Rwanda</strong> in perception annotation, contributing to autonomous drone systems that deliver life-saving medical supplies to remote areas. I've also collaborated with the <strong>National Geographic Society</strong> on conservation data visualization and conducted market research for the <strong>National Research Group</strong>.
+                        </p>
+                        <p>
+                            Beyond technology, I'm committed to leadership and advocacy. I'm a <strong>Harvard Aspire Leader</strong>, <strong>Millennium Fellow</strong>, and was sponsored to attend <strong>Women Deliver 2023</strong> as a delegate advocating for gender equality globally.
+                        </p>
+                    </div>
                     <div class="about-stats">
-                        <div class="stat">
-                            <span class="stat-number">5+</span>
-                            <span class="stat-label">Major Internships</span>
+                        <div class="stat-item">
+                            <span class="stat-number" data-count="5">0</span>
+                            <span class="stat-label">Professional Experiences</span>
                         </div>
-                        <div class="stat">
-                            <span class="stat-number">4+</span>
+                        <div class="stat-item">
+                            <span class="stat-number" data-count="6">0</span>
                             <span class="stat-label">Leadership Programs</span>
                         </div>
-                        <div class="stat">
-                            <span class="stat-number">3+</span>
-                            <span class="stat-label">Research Projects</span>
+                        <div class="stat-item">
+                            <span class="stat-number" data-count="14">0</span>
+                            <span class="stat-label">Countries Represented</span>
                         </div>
                     </div>
                 </div>
-                <div class="about-image">
-                    <img src="https://via.placeholder.com/400x500/e5e7eb/6b7280?text=About+Me" alt="About Me" class="about-img">
+            </div>
+            
+            <!-- Education -->
+            <div class="education-section">
+                <h3 class="subsection-title">
+                    <i class="fas fa-graduation-cap"></i>
+                    Education
+                </h3>
+                <div class="education-card">
+                    <div class="edu-logo">
+                        <span>ALU</span>
+                    </div>
+                    <div class="edu-content">
+                        <h4>The African Leadership University</h4>
+                        <p class="edu-degree">Bachelor of Science in Software Engineering</p>
+                        <p class="edu-location"><i class="fas fa-map-marker-alt"></i> Kigali, Rwanda</p>
+                        <p class="edu-date"><i class="fas fa-calendar"></i> January 2023 - June 2026</p>
+                        <div class="edu-honors">
+                            <span class="honor-badge"><i class="fas fa-star"></i> Mastercard Foundation Scholarship Recipient</span>
+                            <span class="honor-badge"><i class="fas fa-star"></i> Women Deliver 2023 Delegate Sponsorship</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Work Experience</span>
+                <h2 class="section-title">Building Impact<br>Across Industries</h2>
+            </div>
+            
+            <div class="experience-timeline">
+                <!-- Zipline -->
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="exp-header">
+                            <div class="exp-company">
+                                <img src="images/audry_zipline_kayonza2024.jpg" alt="Audry at Zipline Rwanda" class="exp-img">
+                            </div>
+                            <div class="exp-info">
+                                <h3 class="exp-title">Perception Annotation Intern</h3>
+                                <p class="exp-company-name">Zipline</p>
+                                <p class="exp-meta"><i class="fas fa-map-marker-alt"></i> Rwanda <span class="divider">|</span> <i class="fas fa-calendar"></i> August 2025 - Present</p>
+                            </div>
+                        </div>
+                        <div class="exp-description">
+                            <p>Working under the <strong>Autonomous Engineering Team</strong>, contributing to data and perception annotation systems that power Zipline's life-saving medical delivery drones. This cutting-edge work directly impacts healthcare access in rural Rwanda and beyond.</p>
+                        </div>
+                        <div class="exp-tags">
+                            <span class="tag">Computer Vision</span>
+                            <span class="tag">Machine Learning</span>
+                            <span class="tag">Autonomous Systems</span>
+                            <span class="tag">Healthcare Tech</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Silicon Valley -->
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="exp-header">
+                            <div class="exp-company">
+                                <img src="images/audry_silicon_valley.jpg" alt="Audry at Silicon Valley Program" class="exp-img">
+                            </div>
+                            <div class="exp-info">
+                                <h3 class="exp-title">Student Participant</h3>
+                                <p class="exp-company-name">ALU Silicon Valley Global Leadership Program</p>
+                                <p class="exp-meta"><i class="fas fa-map-marker-alt"></i> United States <span class="divider">|</span> <i class="fas fa-calendar"></i> April 2025 - May 2025</p>
+                            </div>
+                        </div>
+                        <div class="exp-description">
+                            <p>Selected as <strong>1 of only 14 students</strong> to represent the African Leadership University and Carnegie Foundation in Silicon Valley. Engaged with industry titans including:</p>
+                            <div class="company-logos">
+                                <span class="company-chip"><i class="fab fa-microsoft"></i> Microsoft</span>
+                                <span class="company-chip"><i class="fab fa-google"></i> Google X</span>
+                                <span class="company-chip"><i class="fab fa-aws"></i> AWS</span>
+                                <span class="company-chip">Intel</span>
+                                <span class="company-chip">Coursera</span>
+                                <span class="company-chip">Lyft</span>
+                            </div>
+                            <p>Participated in intensive sessions on AI, leadership development, and entrepreneurship with global leaders.</p>
+                        </div>
+                        <div class="exp-tags">
+                            <span class="tag">Leadership</span>
+                            <span class="tag">AI</span>
+                            <span class="tag">Entrepreneurship</span>
+                            <span class="tag">Tech Industry</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- National Geographic -->
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="exp-header">
+                            <div class="exp-company">
+                                <img src="images/audry_global_ai_summit.jpg" alt="Audry presenting data visualization" class="exp-img">
+                            </div>
+                            <div class="exp-info">
+                                <h3 class="exp-title">Data Visualization & Mapping Extern</h3>
+                                <p class="exp-company-name">National Geographic Society + Nature Conservancy</p>
+                                <p class="exp-meta"><i class="fas fa-map-marker-alt"></i> United States (Remote) <span class="divider">|</span> <i class="fas fa-calendar"></i> September 2024 - November 2024</p>
+                            </div>
+                        </div>
+                        <div class="exp-description">
+                            <ul>
+                                <li>Leveraged geospatial data to explore conservation issues, focusing on <strong>wetland degradation</strong> and its impacts on community health</li>
+                                <li>Applied GIS techniques to create <strong>narrative-driven visualizations</strong> highlighting environmental and health risks</li>
+                                <li>Presented findings to the National Geographic Society team, emphasizing conservation strategies prioritizing ecological and community health</li>
+                            </ul>
+                        </div>
+                        <div class="exp-tags">
+                            <span class="tag">GIS</span>
+                            <span class="tag">Data Visualization</span>
+                            <span class="tag">Conservation</span>
+                            <span class="tag">Geospatial Analysis</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- National Research Group -->
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="exp-header">
+                            <div class="exp-company">
+                                <img src="images/audry_alx_dataanalytics.jpg" alt="Audry doing research" class="exp-img">
+                            </div>
+                            <div class="exp-info">
+                                <h3 class="exp-title">Market Research Extern</h3>
+                                <p class="exp-company-name">National Research Group</p>
+                                <p class="exp-meta"><i class="fas fa-map-marker-alt"></i> United States (Remote) <span class="divider">|</span> <i class="fas fa-calendar"></i> March 2024 - April 2024</p>
+                            </div>
+                        </div>
+                        <div class="exp-description">
+                            <ul>
+                                <li>Conducted detailed research on the <strong>policy influence landscape</strong> in North America's environmental sector</li>
+                                <li>Identified and profiled <strong>top 8 climate influencers</strong> based on contributions, awards, and expertise in Climate, Environment, and Geophysics</li>
+                                <li>Presented comprehensive market research demonstrating key findings and strategic insights</li>
+                            </ul>
+                        </div>
+                        <div class="exp-tags">
+                            <span class="tag">Market Research</span>
+                            <span class="tag">Policy Analysis</span>
+                            <span class="tag">Climate</span>
+                            <span class="tag">Strategic Insights</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Deep Learning Indaba -->
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="exp-header">
+                            <div class="exp-company">
+                                <img src="images/audry_deeplearningindaba_ghana.jpg" alt="Audry at Deep Learning Indaba" class="exp-img">
+                            </div>
+                            <div class="exp-info">
+                                <h3 class="exp-title">Undergraduate Student Researcher</h3>
+                                <p class="exp-company-name">Deep Learning Indaba</p>
+                                <p class="exp-meta"><i class="fas fa-map-marker-alt"></i> Accra, Ghana (Remote) <span class="divider">|</span> <i class="fas fa-calendar"></i> September 2023 - December 2023</p>
+                            </div>
+                        </div>
+                        <div class="exp-description">
+                            <ul>
+                                <li>Led research on <strong>predictive analysis in African healthcare queueing systems</strong></li>
+                                <li>Cleaned and preprocessed large datasets using <strong>R, Python, and Pandas</strong>, contributing to the development of Mediqueueless</li>
+                                <li>Authored research paper <em>"Prioritizing Patient-Centric Care: Resolving the Problem of Long Queues in African Hospitals"</em> — <strong>accepted for presentation at The International Deep Learning Conference</strong></li>
+                            </ul>
+                        </div>
+                        <div class="exp-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">R</span>
+                            <span class="tag">Machine Learning</span>
+                            <span class="tag">Healthcare AI</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Startup / Mediqueueless Section -->
+    <section id="startup" class="startup">
+        <div class="container">
+            <div class="section-header light">
+                <span class="section-tag">My Startup</span>
+                <h2 class="section-title">Mediqueueless</h2>
+                <p class="section-subtitle">Transforming Healthcare Access Across Africa</p>
+            </div>
+            
+            <div class="startup-content">
+                <div class="startup-info">
+                    <div class="startup-badge">
+                        <i class="fas fa-hospital"></i>
+                        <span>Founded May 2024 • Officially Registered in Rwanda</span>
+                    </div>
+                    <h3 class="startup-headline">Reducing Patient Waiting Times in African Hospitals Through Digital Innovation</h3>
+                    <p class="startup-description">
+                        Every day, millions of patients across Africa spend hours waiting in hospital queues — time that could be spent working, caring for families, or resting. <strong>Mediqueueless</strong> is a digital healthcare scheduling platform designed to solve this problem, giving patients control over their healthcare journey.
+                    </p>
+                    <div class="startup-highlights">
+                        <div class="highlight-item">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <strong>Smart Scheduling</strong>
+                                <p>AI-powered appointment booking that minimizes wait times</p>
+                            </div>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fas fa-mobile-alt"></i>
+                            <div>
+                                <strong>Mobile-First</strong>
+                                <p>Designed for Africa's mobile-first population</p>
+                            </div>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fas fa-heart"></i>
+                            <div>
+                                <strong>Patient-Centric</strong>
+                                <p>Built around the patient experience from day one</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="startup-video">
+                    <div class="video-wrapper">
+                        <iframe 
+                            src="https://www.youtube.com/embed/h7fH6QfGbjk?si=JNmRry3PTGnP9m2b" 
+                            title="Mediqueueless - Audry Chivanga's Story" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                            referrerpolicy="strict-origin-when-cross-origin" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <p class="video-caption">
+                        <i class="fas fa-play-circle"></i> Watch my story — featured by ALU before the Silicon Valley Leadership Program
+                    </p>
+                </div>
+            </div>
+            
+            <div class="research-callout">
+                <div class="callout-icon">
+                    <i class="fas fa-file-alt"></i>
+                </div>
+                <div class="callout-content">
+                    <h4>Published Research</h4>
+                    <p>My research paper <em>"Prioritizing Patient-Centric Care: Resolving the Problem of Long Queues in African Hospitals"</em> was accepted for presentation at The International Deep Learning Conference, contributing foundational insights to Mediqueueless.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Journey</span>
+                <h2 class="section-title">Moments That<br>Define My Path</h2>
+            </div>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item large">
+                    <img src="images/audry_microsoft.jpg" alt="Audry at Microsoft">
+                    <div class="gallery-overlay">
+                        <span class="gallery-label">Microsoft Visit</span>
+                        <p>Silicon Valley Leadership Program</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/audry_amazon.jpg" alt="Audry at Amazon">
+                    <div class="gallery-overlay">
+                        <span class="gallery-label">AWS Experience</span>
+                        <p>Learning from tech leaders</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/audry-intel.jpg" alt="Audry at Intel">
+                    <div class="gallery-overlay">
+                        <span class="gallery-label">Intel Visit</span>
+                        <p>Exploring innovation</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/audry-coursera.jpg" alt="Audry at Coursera">
+                    <div class="gallery-overlay">
+                        <span class="gallery-label">Coursera HQ</span>
+                        <p>Education technology</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/audry_Johndeer_withCTO.jpg" alt="Audry with John Deere CTO">
+                    <div class="gallery-overlay">
+                        <span class="gallery-label">John Deere</span>
+                        <p>With the CTO</p>
+                    </div>
+                </div>
+                <div class="gallery-item tall">
+                    <img src="images/audry_womendeliver.jpg" alt="Audry at Women Deliver">
+                    <div class="gallery-overlay">
+                        <span class="gallery-label">Women Deliver 2023</span>
+                        <p>Global advocacy</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/audry_cmu_bridgeprogram.jpg" alt="Audry at CMU Bridge Program">
+                    <div class="gallery-overlay">
+                        <span class="gallery-label">CMU Bridge Program</span>
+                        <p>Academic excellence</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/audry-cmu_bridgegraduate.jpg" alt="Audry CMU Bridge Graduate">
+                    <div class="gallery-overlay">
+                        <span class="gallery-label">CMU Graduate</span>
+                        <p>Celebrating success</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/audry_pan_africanmathematics_olympiads.jpg" alt="Audry at Pan African Mathematics Olympiad">
+                    <div class="gallery-overlay">
+                        <span class="gallery-label">PAMO Guide</span>
+                        <p>Mathematics Olympiad volunteer</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/audry_inclusivefintechforum.jpg" alt="Audry at Inclusive Fintech Forum">
+                    <div class="gallery-overlay">
+                        <span class="gallery-label">Fintech Forum</span>
+                        <p>Financial inclusion</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/audry_healthhackathon.jpg" alt="Audry at Health Hackathon">
+                    <div class="gallery-overlay">
+                        <span class="gallery-label">Health Hackathon</span>
+                        <p>Innovation in healthcare</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/audry_mcw_2023.jpg" alt="Audry at MCW 2023">
+                    <div class="gallery-overlay">
+                        <span class="gallery-label">MCW 2023</span>
+                        <p>Global connections</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section id="achievements" class="achievements">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Recognition</span>
+                <h2 class="section-title">Leadership &<br>Achievements</h2>
+            </div>
+            
+            <div class="achievements-grid">
+                <div class="achievement-card featured">
+                    <div class="card-glow"></div>
+                    <div class="achievement-icon">
+                        <i class="fas fa-credit-card"></i>
+                    </div>
+                    <h3>Mastercard Foundation Scholar</h3>
+                    <p>Selected as a Mastercard Foundation Scholarship recipient at The African Leadership University, recognizing exceptional academic achievement, leadership potential, and commitment to giving back to Africa.</p>
+                </div>
+                
+                <div class="achievement-card featured">
+                    <div class="card-glow"></div>
+                    <div class="achievement-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>Silicon Valley Leadership Program</h3>
+                    <p>Chosen as 1 of only 14 students globally to represent ALU and Carnegie Foundation in Silicon Valley, learning from Microsoft, Google X, AWS, Intel, Coursera, and Lyft.</p>
+                </div>
+                
+                <div class="achievement-card">
+                    <div class="achievement-icon">
+                        <i class="fab fa-harvard"></i>
+                    </div>
+                    <h3>Harvard Aspire Leader</h3>
+                    <p>Selected for the prestigious Harvard Aspire Leaders Program, developing advanced leadership, problem-solving, and global collaboration skills.</p>
+                </div>
+                
+                <div class="achievement-card">
+                    <div class="achievement-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>Millennium Fellow</h3>
+                    <p>Recognized as a Millennium Fellow, joining a global network of young leaders committed to driving positive change in their communities.</p>
+                </div>
+                
+                <div class="achievement-card">
+                    <div class="achievement-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>McKinsey Forward</h3>
+                    <p>Completed McKinsey Forward leadership program, strengthening strategic thinking, communication, and professional problem-solving capabilities.</p>
+                </div>
+                
+                <div class="achievement-card">
+                    <div class="achievement-icon">
+                        <i class="fas fa-venus"></i>
+                    </div>
+                    <h3>Women Deliver 2023 Delegate</h3>
+                    <p>Received full sponsorship to attend Women Deliver 2023, the world's largest conference on gender equality, health, rights, and wellbeing.</p>
+                </div>
+                
+                <div class="achievement-card">
+                    <div class="achievement-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>LEAP Young Women Leaders</h3>
+                    <p>Selected for LEAP Young Women Leaders program, focusing on developing leadership skills for creating lasting positive social impact.</p>
+                </div>
+                
+                <div class="achievement-card">
+                    <div class="achievement-icon">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <h3>PAMO Volunteer Guide</h3>
+                    <p>Volunteered with Pan African Mathematics Olympiad at AIMS Rwanda, supporting international students and organizing workshops for competing participants.</p>
                 </div>
             </div>
         </div>
@@ -113,251 +590,57 @@
     <!-- Skills Section -->
     <section id="skills" class="skills">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header light">
+                <span class="section-tag">Expertise</span>
                 <h2 class="section-title">Skills & Technologies</h2>
-                <p class="section-subtitle">Technologies I work with</p>
             </div>
-            <div class="skills-grid">
+            
+            <div class="skills-container">
                 <div class="skill-category">
-                    <h3 class="category-title">Programming & Development</h3>
-                    <div class="skill-items">
-                        <div class="skill-item">
-                            <i class="fab fa-python"></i>
-                            <span>Python</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fab fa-r-project"></i>
-                            <span>R</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fas fa-code"></i>
-                            <span>Software Development</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fab fa-html5"></i>
-                            <span>HTML5</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fab fa-js-square"></i>
-                            <span>JavaScript</span>
-                        </div>
+                    <h3><i class="fas fa-code"></i> Programming & Development</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">R</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">HTML5/CSS3</span>
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">Software Development</span>
                     </div>
                 </div>
+                
                 <div class="skill-category">
-                    <h3 class="category-title">Data & Analytics</h3>
-                    <div class="skill-items">
-                        <div class="skill-item">
-                            <i class="fas fa-chart-line"></i>
-                            <span>Data Analytics</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fas fa-table"></i>
-                            <span>Pandas</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fas fa-map"></i>
-                            <span>GIS & ArcGIS</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fas fa-brain"></i>
-                            <span>Machine Learning</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fas fa-search"></i>
-                            <span>Market Research</span>
-                        </div>
+                    <h3><i class="fas fa-chart-bar"></i> Data & Analytics</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Pandas</span>
+                        <span class="skill-tag">Data Analytics</span>
+                        <span class="skill-tag">Machine Learning</span>
+                        <span class="skill-tag">Data Visualization</span>
+                        <span class="skill-tag">Predictive Analysis</span>
+                        <span class="skill-tag">Market Research</span>
                     </div>
                 </div>
+                
                 <div class="skill-category">
-                    <h3 class="category-title">Research & Leadership</h3>
-                    <div class="skill-items">
-                        <div class="skill-item">
-                            <i class="fas fa-microscope"></i>
-                            <span>Academic Research</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fas fa-chart-bar"></i>
-                            <span>Data Visualization</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fas fa-users"></i>
-                            <span>Leadership</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fas fa-globe-africa"></i>
-                            <span>Geospatial Analysis</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fas fa-cogs"></i>
-                            <span>Systems Analytics</span>
-                        </div>
+                    <h3><i class="fas fa-map-marked-alt"></i> Geospatial & Research</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">GIS / ArcGIS</span>
+                        <span class="skill-tag">Survey123</span>
+                        <span class="skill-tag">QuickCapture</span>
+                        <span class="skill-tag">Geospatial Analysis</span>
+                        <span class="skill-tag">Academic Research</span>
+                        <span class="skill-tag">Technical Writing</span>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="projects">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Featured Projects</h2>
-                <p class="section-subtitle">Some of my recent work</p>
-            </div>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://via.placeholder.com/400x250/3b82f6/ffffff?text=Zipline+Perception" alt="Zipline Perception Annotation">
-                        <div class="project-overlay">
-                            <a href="#contact" class="project-link">
-                                <i class="fas fa-info-circle"></i>
-                            </a>
-                        </div>
+                
+                <div class="skill-category">
+                    <h3><i class="fas fa-brain"></i> AI & Computer Vision</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Computer Vision</span>
+                        <span class="skill-tag">Perception Annotation</span>
+                        <span class="skill-tag">Deep Learning</span>
+                        <span class="skill-tag">Autonomous Systems</span>
+                        <span class="skill-tag">Healthcare AI</span>
                     </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Zipline Perception Annotation</h3>
-                        <p class="project-description">
-                            Currently working as a Perception Annotation Intern at Zipline Rwanda, contributing to advanced drone perception systems for medical delivery logistics in rural areas.
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Computer Vision</span>
-                            <span class="tech-tag">Machine Learning</span>
-                            <span class="tech-tag">Annotation Tools</span>
-                            <span class="tech-tag">Healthcare Tech</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://via.placeholder.com/400x250/10b981/ffffff?text=Conservation+GIS" alt="Conservation Data Visualization">
-                        <div class="project-overlay">
-                            <a href="#contact" class="project-link">
-                                <i class="fas fa-map"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Conservation Data Visualization</h3>
-                        <p class="project-description">
-                            Led geospatial analysis with National Geographic Society, focusing on wetland degradation impacts on community health using ArcGIS, creating compelling visualizations for conservation strategies.
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-tag">ArcGIS</span>
-                            <span class="tech-tag">Survey123</span>
-                            <span class="tech-tag">QuickCapture</span>
-                            <span class="tech-tag">Environmental Data</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://via.placeholder.com/400x250/f59e0b/ffffff?text=Mediqueueless" alt="Healthcare Queue System">
-                        <div class="project-overlay">
-                            <a href="#contact" class="project-link">
-                                <i class="fas fa-hospital"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Mediqueueless Research</h3>
-                        <p class="project-description">
-                            Developed predictive analysis models for African healthcare queueing systems with Deep Learning Indaba. Authored research paper presented at International Deep Learning Conference.
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">R</span>
-                            <span class="tech-tag">Pandas</span>
-                            <span class="tech-tag">Healthcare AI</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://via.placeholder.com/400x250/8b5cf6/ffffff?text=Market+Research" alt="Policy Influence Research">
-                        <div class="project-overlay">
-                            <a href="#contact" class="project-link">
-                                <i class="fas fa-chart-line"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Climate Policy Influence Research</h3>
-                        <p class="project-description">
-                            Conducted comprehensive market research for National Research Group, analyzing North American environmental policy landscape and identifying top climate influencers across geophysics and environmental fields.
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Market Research</span>
-                            <span class="tech-tag">Data Analysis</span>
-                            <span class="tech-tag">Policy Analysis</span>
-                            <span class="tech-tag">Strategic Insights</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Leadership & Achievements Section -->
-    <section id="achievements" class="achievements">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Leadership & Achievements</h2>
-                <p class="section-subtitle">Recognition and leadership development programs</p>
-            </div>
-            <div class="achievements-grid">
-                <div class="achievement-card">
-                    <div class="achievement-icon">
-                        <i class="fas fa-university"></i>
-                    </div>
-                    <h3 class="achievement-title">Mastercard Foundation Scholar</h3>
-                    <p class="achievement-description">
-                        Selected as a Mastercard Foundation Scholarship recipient at The African Leadership University, recognizing academic excellence and leadership potential.
-                    </p>
-                </div>
-                <div class="achievement-card">
-                    <div class="achievement-icon">
-                        <i class="fas fa-globe-americas"></i>
-                    </div>
-                    <h3 class="achievement-title">Silicon Valley Leadership Program</h3>
-                    <p class="achievement-description">
-                        Chosen as 1 of 14 students globally for ALU's Silicon Valley Program, learning from Microsoft, Google, AWS, Intel, and other tech giants.
-                    </p>
-                </div>
-                <div class="achievement-card">
-                    <div class="achievement-icon">
-                        <i class="fas fa-heart"></i>
-                    </div>
-                    <h3 class="achievement-title">Harvard Aspire Leader</h3>
-                    <p class="achievement-description">
-                        Selected for the prestigious Harvard Aspire Leader's Program, developing global leadership and problem-solving capabilities.
-                    </p>
-                </div>
-                <div class="achievement-card">
-                    <div class="achievement-icon">
-                        <i class="fas fa-handshake"></i>
-                    </div>
-                    <h3 class="achievement-title">McKinsey Forward & Millennium Fellow</h3>
-                    <p class="achievement-description">
-                        Participated in McKinsey Forward leadership program and Millennium Fellowship, strengthening strategic thinking and leadership skills.
-                    </p>
-                </div>
-                <div class="achievement-card">
-                    <div class="achievement-icon">
-                        <i class="fas fa-female"></i>
-                    </div>
-                    <h3 class="achievement-title">Women Deliver 2023 Delegate</h3>
-                    <p class="achievement-description">
-                        Received sponsorship to attend Women Deliver 2023 conference, advocating for gender equality and women's empowerment globally.
-                    </p>
-                </div>
-                <div class="achievement-card">
-                    <div class="achievement-icon">
-                        <i class="fas fa-award"></i>
-                    </div>
-                    <h3 class="achievement-title">LEAP Young Women Leaders</h3>
-                    <p class="achievement-description">
-                        Selected for the LEAP Young Women Leaders program, focusing on developing leadership skills for creating positive social impact.
-                    </p>
                 </div>
             </div>
         </div>
@@ -367,30 +650,34 @@
     <section id="contact" class="contact">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Get In Touch</h2>
-                <p class="section-subtitle">Let's work together on your next project</p>
+                <span class="section-tag">Connect</span>
+                <h2 class="section-title">Let's Build<br>Something Together</h2>
+                <p class="section-subtitle">Whether you're interested in collaboration, speaking opportunities, or just want to say hello — I'd love to hear from you.</p>
             </div>
+            
             <div class="contact-content">
                 <div class="contact-info">
-                    <div class="contact-item">
+                    <div class="contact-card">
                         <div class="contact-icon">
                             <i class="fas fa-envelope"></i>
                         </div>
                         <div class="contact-details">
                             <h3>Email</h3>
-                            <p>a.chivanga@alustudent.com</p>
+                            <a href="mailto:a.chivanga@alustudent.com">a.chivanga@alustudent.com</a>
                         </div>
                     </div>
-                    <div class="contact-item">
+                    
+                    <div class="contact-card">
                         <div class="contact-icon">
                             <i class="fas fa-phone"></i>
                         </div>
                         <div class="contact-details">
                             <h3>Phone</h3>
-                            <p>(+250) 792403016</p>
+                            <a href="tel:+250792403016">(+250) 792 403 016</a>
                         </div>
                     </div>
-                    <div class="contact-item">
+                    
+                    <div class="contact-card">
                         <div class="contact-icon">
                             <i class="fas fa-map-marker-alt"></i>
                         </div>
@@ -399,21 +686,42 @@
                             <p>Kigali, Rwanda</p>
                         </div>
                     </div>
+                    
+                    <div class="social-links-large">
+                        <a href="https://github.com/audryashleenchivanga" class="social-btn github" target="_blank">
+                            <i class="fab fa-github"></i>
+                            <span>GitHub</span>
+                        </a>
+                        <a href="https://linkedin.com/in/audry-chivanga" class="social-btn linkedin" target="_blank">
+                            <i class="fab fa-linkedin"></i>
+                            <span>LinkedIn</span>
+                        </a>
+                    </div>
                 </div>
+                
                 <form class="contact-form" id="contact-form">
-                    <div class="form-group">
-                        <input type="text" id="name" name="name" required placeholder="Your Name" class="form-input">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" required placeholder="Jane Doe">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" name="email" required placeholder="jane@example.com">
+                        </div>
                     </div>
                     <div class="form-group">
-                        <input type="email" id="email" name="email" required placeholder="Your Email" class="form-input">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" required placeholder="Let's collaborate!">
                     </div>
                     <div class="form-group">
-                        <input type="text" id="subject" name="subject" required placeholder="Subject" class="form-input">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" required placeholder="Tell me about your project or opportunity..."></textarea>
                     </div>
-                    <div class="form-group">
-                        <textarea id="message" name="message" rows="6" required placeholder="Your Message" class="form-input"></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary btn-full">Send Message</button>
+                    <button type="submit" class="btn btn-primary btn-full">
+                        <span>Send Message</span>
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
                 </form>
             </div>
         </div>
@@ -423,30 +731,37 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-text">
-                    <p>&copy; 2024 Audry Ashleen Chivanga. All rights reserved.</p>
+                <div class="footer-brand">
+                    <span class="footer-logo">AAC</span>
+                    <p>Building technology that transforms lives across Africa.</p>
                 </div>
-                <div class="footer-social">
-                    <a href="https://github.com/audryashleenchivanga" class="social-link">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a href="https://linkedin.com/in/audry-chivanga" class="social-link">
-                        <i class="fab fa-linkedin"></i>
-                    </a>
-                    <a href="mailto:a.chivanga@alustudent.com" class="social-link">
-                        <i class="fas fa-envelope"></i>
-                    </a>
+                <div class="footer-links">
+                    <div class="footer-nav">
+                        <a href="#home">Home</a>
+                        <a href="#about">About</a>
+                        <a href="#experience">Experience</a>
+                        <a href="#startup">Startup</a>
+                        <a href="#achievements">Achievements</a>
+                        <a href="#contact">Contact</a>
+                    </div>
+                    <div class="footer-social">
+                        <a href="https://github.com/audryashleenchivanga" aria-label="GitHub" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="https://linkedin.com/in/audry-chivanga" aria-label="LinkedIn" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="mailto:a.chivanga@alustudent.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                    </div>
                 </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Audry Ashleen Chivanga. Crafted with passion in Kigali, Rwanda.</p>
             </div>
         </div>
     </footer>
 
-    <!-- Back to Top Button -->
-    <button class="back-to-top" id="backToTop">
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
         <i class="fas fa-arrow-up"></i>
     </button>
 
     <script src="script.js"></script>
 </body>
 </html>
-
