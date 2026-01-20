@@ -54,31 +54,66 @@ If you prefer to set the password directly in the code (not recommended for prod
 
 ## Testing
 
-1. Start your server:
+1. **Set your App Password** (see instructions above)
+
+2. **Start your server**:
    ```bash
    python server.py
    ```
 
-2. Visit http://localhost:5000 and navigate to the Contact section
+3. **Test email configuration** (optional):
+   Visit http://localhost:5000/api/test-email in your browser
+   This will show you if your email is configured correctly
 
-3. Fill out the contact form and submit
-
-4. Check your email inbox at **audryashleenchivanga@gmail.com**
+4. **Test the contact form**:
+   - Visit http://localhost:5000/#contact
+   - Fill out the contact form and submit
+   - Check the server console for detailed logs
+   - Check your email inbox at **audryashleenchivanga@gmail.com**
+   - Also check spam/junk folder
 
 ## Troubleshooting
 
 ### "Failed to send email" Error
 
-- Make sure you've set the `GMAIL_APP_PASSWORD` environment variable
-- Verify your App Password is correct (16 characters, no spaces)
-- Check that 2-Step Verification is enabled on your Google Account
-- Ensure your internet connection is working
+1. **Check if App Password is set**:
+   - Visit http://localhost:5000/api/test-email
+   - Look for `password_configured: true`
+   - If false, you need to set the environment variable
+
+2. **Verify App Password format**:
+   - Should be 16 characters (no spaces)
+   - Example: `abcd efgh ijkl mnop` → use as `abcdefghijklmnop` (no spaces)
+
+3. **Check server console logs**:
+   - The server will show detailed error messages
+   - Look for "SMTP Authentication failed" or similar errors
+
+4. **Common issues**:
+   - Using regular Gmail password instead of App Password → **Must use App Password**
+   - 2-Step Verification not enabled → **Must enable 2-Step Verification first**
+   - Wrong password format → **Remove spaces from App Password**
 
 ### Email Not Received
 
-- Check your spam/junk folder
-- Verify the email address in `server.py` is correct: `RECIPIENT_EMAIL = "audryashleenchivanga@gmail.com"`
-- Check server logs for error messages
+1. **Check spam/junk folder** - Gmail sometimes filters automated emails
+2. **Check server logs** - Look for "Email sent successfully!" message
+3. **Test email configuration** - Visit http://localhost:5000/api/test-email
+4. **Verify recipient email** - Check `server.py` line: `RECIPIENT_EMAIL = "audryashleenchivanga@gmail.com"`
+5. **Check Gmail security**:
+   - Go to https://myaccount.google.com/security
+   - Make sure "Less secure app access" is NOT the issue (use App Password instead)
+   - Check if there are any security alerts in your Google Account
+
+### Still Not Working?
+
+1. **Check server console output** - It will show detailed error messages
+2. **Try the test endpoint** - http://localhost:5000/api/test-email
+3. **Verify environment variable**:
+   ```powershell
+   echo $env:GMAIL_APP_PASSWORD
+   ```
+4. **Restart server** after setting environment variable
 
 ### Development Mode (No Email Configuration)
 

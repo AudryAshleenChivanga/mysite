@@ -604,6 +604,33 @@ def api_data():
     """API endpoint to get all data"""
     return jsonify(load_data())
 
+@app.route('/api/test-email', methods=['GET'])
+def test_email_config():
+    """Test endpoint to check email configuration"""
+    config_status = {
+        'smtp_server': SMTP_SERVER,
+        'smtp_port': SMTP_PORT,
+        'smtp_username': SMTP_USERNAME,
+        'recipient_email': RECIPIENT_EMAIL,
+        'password_configured': bool(SMTP_PASSWORD),
+        'password_length': len(SMTP_PASSWORD) if SMTP_PASSWORD else 0
+    }
+    
+    if SMTP_PASSWORD:
+        # Try to connect and authenticate
+        try:
+            server = smtplib.SMTP(SMTP_SERVER, SMTP_PORT)
+            server.starttls()
+            server.login(SMTP_USERNAME, SMTP_PASSWORD)
+            server.quit()
+            config_status['connection_test'] = 'SUCCESS - Email configuration is working!'
+        except Exception as e:
+            config_status['connection_test'] = f'FAILED - {str(e)}'
+    else:
+        config_status['connection_test'] = 'NOT CONFIGURED - Set GMAIL_APP_PASSWORD environment variable'
+    
+    return jsonify(config_status)
+
 @app.route('/api/contact', methods=['POST'])
 def send_contact_email():
     """Handle contact form submissions and send email"""
@@ -624,6 +651,16 @@ def send_contact_email():
         subject = data.get('subject')
         message = data.get('message')
         
+        # Log the submission
+        print("\n" + "="*70)
+        print("CONTACT FORM SUBMISSION RECEIVED")
+        print("="*70)
+        print(f"Name: {name}")
+        print(f"Email: {email}")
+        print(f"Subject: {subject}")
+        print(f"Message: {message[:100]}..." if len(message) > 100 else f"Message: {message}")
+        print("="*70 + "\n")
+        
         # Create email message
         msg = MIMEMultipart()
         msg['From'] = SMTP_USERNAME
@@ -631,8 +668,33 @@ def send_contact_email():
         msg['Subject'] = f"Portfolio Contact: {subject}"
         msg['Reply-To'] = email
         
-        # Email body
-        body = f"""
+        # Email body with HTML formatting
+        html_body = f"""
+<html>
+<head></head>
+<body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
+    <div style="max-width: 600px; margin: 0 auto; padding: 20px;">
+        <h2 style="color: #d4a853;">New Message from Portfolio Contact Form</h2>
+        <div style="background: #f8f9fa; padding: 15px; border-radius: 5px; margin: 20px 0;">
+            <p><strong>Name:</strong> {name}</p>
+            <p><strong>Email:</strong> <a href="mailto:{email}">{email}</a></p>
+            <p><strong>Subject:</strong> {subject}</p>
+        </div>
+        <div style="margin: 20px 0;">
+            <h3>Message:</h3>
+            <p style="white-space: pre-wrap;">{message}</p>
+        </div>
+        <hr style="border: none; border-top: 1px solid #eee; margin: 30px 0;">
+        <p style="color: #666; font-size: 12px;">
+            This message was sent from your portfolio website.<br>
+            Reply directly to this email to respond to {name}.
+        </p>
+    </div>
+</body>
+</html>
+"""
+        
+        plain_body = f"""
 New message from your portfolio contact form:
 
 Name: {name}
@@ -647,37 +709,71 @@ This message was sent from your portfolio website.
 Reply directly to this email to respond to {name} ({email}).
 """
         
-        msg.attach(MIMEText(body, 'plain'))
+        # Attach both plain text and HTML versions
+        msg.attach(MIMEText(plain_body, 'plain'))
+        msg.attach(MIMEText(html_body, 'html'))
         
         # Send email
         if SMTP_PASSWORD:
             try:
+                print(f"Attempting to send email to {RECIPIENT_EMAIL}...")
+                print(f"SMTP Server: {SMTP_SERVER}:{SMTP_PORT}")
+                print(f"SMTP Username: {SMTP_USERNAME}")
+                
                 server = smtplib.SMTP(SMTP_SERVER, SMTP_PORT)
+                server.set_debuglevel(1)  # Enable debug output
                 server.starttls()
+                
+                print("Logging in to SMTP server...")
                 server.login(SMTP_USERNAME, SMTP_PASSWORD)
+                print("Login successful!")
+                
                 text = msg.as_string()
+                print(f"Sending email to {RECIPIENT_EMAIL}...")
                 server.sendmail(SMTP_USERNAME, RECIPIENT_EMAIL, text)
                 server.quit()
                 
+                print("Email sent successfully!")
+                
                 return jsonify({
                     'success': True,
-                    'message': 'Thank you! Your message has been sent successfully.'
+                    'message': 'Thank you! Your message has been sent successfully. I will get back to you soon!'
                 }), 200
+                
+            except smtplib.SMTPAuthenticationError as e:
+                error_msg = f"SMTP Authentication failed. Please check your Gmail App Password."
+                print(f"ERROR: {error_msg}")
+                print(f"Details: {str(e)}")
+                return jsonify({
+                    'success': False,
+                    'error': error_msg + ' Make sure you\'re using an App Password, not your regular Gmail password.'
+                }), 500
+                
+            except smtplib.SMTPException as e:
+                error_msg = f"SMTP error occurred: {str(e)}"
+                print(f"ERROR: {error_msg}")
+                return jsonify({
+                    'success': False,
+                    'error': f'Failed to send email. Please try again later. Error: {str(e)}'
+                }), 500
+                
             except Exception as e:
+                error_msg = f"Unexpected error: {str(e)}"
+                print(f"ERROR: {error_msg}")
+                import traceback
+                traceback.print_exc()
                 return jsonify({
                     'success': False,
                     'error': f'Failed to send email: {str(e)}'
                 }), 500
         else:
             # If no SMTP password configured, log the message (for development)
-            print("\n" + "="*60)
-            print("CONTACT FORM SUBMISSION (Email not configured)")
-            print("="*60)
-            print(f"Name: {name}")
-            print(f"Email: {email}")
-            print(f"Subject: {subject}")
-            print(f"Message: {message}")
-            print("="*60 + "\n")
+            print("\n" + "="*70)
+            print("⚠️  EMAIL NOT CONFIGURED - Message logged to console only")
+            print("="*70)
+            print(f"To enable email sending, set GMAIL_APP_PASSWORD environment variable")
+            print(f"See EMAIL_SETUP.md for instructions")
+            print("="*70 + "\n")
             
             return jsonify({
                 'success': True,
@@ -685,6 +781,9 @@ Reply directly to this email to respond to {name} ({email}).
             }), 200
             
     except Exception as e:
+        import traceback
+        print(f"ERROR in send_contact_email: {str(e)}")
+        traceback.print_exc()
         return jsonify({
             'success': False,
             'error': f'Server error: {str(e)}'
