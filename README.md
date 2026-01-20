@@ -1,171 +1,94 @@
-# Audry Ashleen Chivanga - Personal Website
+# My Portfolio Website
 
-A modern, fully responsive personal portfolio website showcasing the achievements, skills, and experience of Audry Ashleen Chivanga - Software Engineering Student, Data Analyst & Researcher.
+Hey there! 👋 Welcome to my personal website. I'm Audry Ashleen Chivanga, and this is where I share my journey as a software engineering student, founder, and someone passionate about using tech to solve real problems in Africa.
 
-## 🌟 Features
+## What This Is
 
-### Design & User Experience
-- **Modern, Clean Design**: Professional and visually appealing layout
-- **Fully Responsive**: Works seamlessly on desktop, tablet, and mobile devices
-- **Smooth Animations**: CSS animations and scroll-triggered effects
-- **Interactive Elements**: Hover effects, smooth scrolling, and dynamic content
-- **Accessibility**: Keyboard navigation support and semantic HTML
+This is my digital space where I showcase:
+- My work at Zipline Rwanda (working on drone perception systems)
+- My startup Mediqueueless (reducing patient waiting times in African hospitals)
+- My experiences from the Silicon Valley Global Leadership Program
+- Research I've done with Deep Learning Indaba and National Geographic
+- The various leadership programs I've been part of
 
-### Sections Included
-1. **Hero/Landing**: Eye-catching introduction highlighting Audry's background as a Software Engineering student
-2. **About**: Comprehensive background showcasing education at ALU Rwanda and impressive internship experience
-3. **Skills**: Technical skills including Python, R, Data Analytics, GIS, and Research capabilities
-4. **Projects**: Real project portfolio featuring work at Zipline, National Geographic, and research projects
-5. **Leadership & Achievements**: Showcase of prestigious programs including Harvard Aspire Leader, Silicon Valley Program, and Mastercard Foundation Scholarship
-6. **Contact**: Contact form with Audry's real contact information
-7. **Footer**: Links to GitHub, LinkedIn, and email
+Basically, it's my story told through code and design.
 
-### Technical Features
-- **Mobile-First Responsive Design**: Breakpoints at 768px and 480px
-- **Fixed Navigation**: Sticky header with active link highlighting
-- **Smooth Scrolling**: JavaScript-powered smooth navigation
-- **Form Validation**: Client-side validation for contact form
-- **Performance Optimized**: Debounced scroll events and efficient animations
-- **Modern CSS**: Flexbox, Grid, custom properties, and advanced selectors
-- **Interactive Elements**: 
-  - Mobile hamburger menu
-  - Back-to-top button
-  - Parallax effects
-  - Typing animation
-  - Counter animations
-  - Intersection Observer for scroll animations
+## The Tech Stack
 
-## 🚀 Getting Started
+I built this with:
+- **HTML/CSS/JavaScript** - keeping it simple and fast
+- **Flask** - for the backend server and contact form
+- **Python** - for handling email submissions
 
-### Option 1: Simple File Opening
-1. Simply open `index.html` in your web browser
-2. The website will load with all functionality intact
+Nothing too fancy, just clean code that works well and looks good.
 
-### Option 2: Local Server (Recommended)
-For the best experience, run a local server:
+## Running It Locally
 
+If you want to check it out on your machine:
+
+### Quick Start
 ```bash
-# Python 3
-python -m http.server 8000
-
-# Python 2
-python -m SimpleHTTPServer 8000
-
-# Node.js (if you have http-server installed)
-npx http-server
-
-# PHP
-php -S localhost:8000
+python server.py
 ```
 
-Then visit `http://localhost:8000` in your browser.
+Then visit `http://localhost:5000` in your browser.
 
-## 📁 File Structure
+The server handles:
+- Serving the website
+- Processing contact form submissions
+- Sending emails (if you configure it - see EMAIL_SETUP.md)
+
+### Just Viewing the Site
+You can also just open `index.html` directly in your browser, though some features work better with the server running.
+
+## What's Inside
 
 ```
 mysite/
-├── index.html          # Main HTML structure
-├── styles.css          # All CSS styles and responsive design
-├── script.js           # JavaScript functionality and interactions
-└── README.md           # This file
+├── index.html          # The main website
+├── styles.css          # All the styling (dark theme with gold accents)
+├── script.js           # Interactive features and animations
+├── server.py           # Flask server for contact form
+├── images/             # Photos from my journey
+└── EMAIL_SETUP.md      # Instructions for setting up email
 ```
 
-## 🎨 Customization
+## Features I'm Proud Of
 
-### Already Personalized For Audry
-The website has been fully customized with Audry's real information including:
-- ✅ Full name: Audry Ashleen Chivanga
-- ✅ Contact information: a.chivanga@alustudent.com, (+250) 792403016
-- ✅ Location: Kigali, Rwanda
-- ✅ Social media links: GitHub and LinkedIn profiles
-- ✅ Real project experiences from Zipline, National Geographic, etc.
-- ✅ Actual skills and technical capabilities
-- ✅ Leadership achievements and scholarship information
+- **Dark, elegant design** - I wanted something that felt professional but also warm
+- **Responsive** - works on everything from phones to big screens
+- **Contact form** - actually sends emails to me (when configured)
+- **Gallery** - photos from Silicon Valley, conferences, and other experiences
+- **Smooth animations** - because who doesn't love a bit of polish?
 
-### Further Customization Options
-If you want to modify anything:
-- Update project links when repositories become public
-- Replace placeholder images with actual photos
-- Add new projects as they are completed
-- Update contact information if needed
+## My Story Highlights
 
-### Styling
-Modify `styles.css` to:
-- Change color scheme (look for CSS custom properties at the top)
-- Adjust fonts and typography
-- Modify spacing and layout
-- Update animations and transitions
+This site tells the story of:
+- Being selected as 1 of 14 students for the Silicon Valley Global Leadership Program
+- Founding Mediqueueless to tackle healthcare wait times
+- Working with Zipline on autonomous drone systems
+- Research that got accepted at the International Deep Learning Conference
+- Being a Mastercard Foundation Scholar at ALU
 
-### Functionality
-Extend `script.js` to:
-- Add more interactive features
-- Integrate with real contact form backend
-- Add more animations
-- Implement additional sections
+## Contact Me
 
-## 🎯 Key Highlights
+Want to get in touch? Use the contact form on the site, or reach out directly:
+- Email: a.chivanga@alustudent.com
+- LinkedIn: [audry-ashleen-chivanga-081175231](https://www.linkedin.com/in/audry-ashleen-chivanga-081175231/)
+- Phone: (+250) 792403016
 
-### Modern CSS Features Used:
-- CSS Grid and Flexbox for layouts
-- CSS Custom Properties (variables)
-- Advanced selectors and pseudo-elements
-- Smooth animations and transitions
-- Mobile-first responsive design
-- Modern gradient and shadow effects
+## Notes
 
-### JavaScript Features:
-- ES6+ syntax and features
-- DOM manipulation and event handling
-- Intersection Observer API for scroll animations
-- Form validation and submission
-- Smooth scrolling and navigation
-- Performance optimization with debouncing
+- The contact form needs email configuration to actually send emails (check EMAIL_SETUP.md)
+- All images are in the `images/` folder
+- The design is fully responsive - try resizing your browser window
 
-### Responsive Breakpoints:
-- Desktop: 1200px+ (default)
-- Tablet: 768px - 1199px
-- Mobile: 320px - 767px
-- Small Mobile: 320px - 479px
+## Why I Built This
 
-## 🔧 Browser Support
+I wanted a space that truly represents who I am and what I'm working on. Not just a resume, but a story. A place where people can see not just what I've done, but why it matters to me.
 
-This website is compatible with:
-- Chrome 60+
-- Firefox 55+
-- Safari 12+
-- Edge 79+
-
-## 📱 Mobile Features
-
-- Touch-friendly navigation
-- Optimized button sizes
-- Responsive typography
-- Mobile-specific layouts
-- Hamburger menu for navigation
-- Optimized images and content
-
-## 🚀 Performance
-
-The website is optimized for:
-- Fast loading times
-- Smooth animations
-- Minimal JavaScript overhead
-- Efficient CSS selectors
-- Optimized images (placeholders provided)
-
-## 📝 Next Steps
-
-1. **Personalize Content**: Replace all placeholder content with your information
-2. **Add Real Images**: Replace placeholder images with your photos
-3. **Connect Contact Form**: Integrate with a backend service for form submissions
-4. **Add Analytics**: Include Google Analytics or similar tracking
-5. **Deploy**: Upload to your hosting service or use GitHub Pages
-6. **SEO Optimization**: Add meta tags, structured data, and optimize content
-
-## 🤝 Support
-
-If you need help customizing the website or adding new features, the code is well-documented and uses modern, clean coding practices.
+Building technology that transforms lives across Africa isn't just a tagline for me - it's what drives everything I do. From Mediqueueless to my work at Zipline, it's all connected by that mission.
 
 ---
 
-**Built with ❤️ using modern web technologies**
+*Built in Kigali, Rwanda. Updated regularly as I continue this journey.*
