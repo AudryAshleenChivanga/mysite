@@ -523,7 +523,7 @@ def admin_personal():
 
 @app.route('/admin/experience')
 def admin_experience():
-    """Simple experience display"""
+    """Experience management with add/delete functionality"""
     if 'authenticated' not in session:
         return redirect(url_for('admin_login'))
     
@@ -545,9 +545,13 @@ def admin_experience():
     <body>
         <div class="container mt-4">
             <div class="admin-card p-4">
-                <h2><i class="fas fa-briefcase"></i> Experience Management</h2>
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h2><i class="fas fa-briefcase"></i> Experience Management</h2>
+                    <a href="/admin/experience/edit" class="btn btn-success">
+                        <i class="fas fa-plus"></i> Add Experience
+                    </a>
+                </div>
                 <a href="/admin" class="btn btn-secondary mb-3"><i class="fas fa-arrow-left"></i> Back to Dashboard</a>
-                
     """
     
     if experiences:
@@ -555,11 +559,18 @@ def admin_experience():
             html += f"""
                 <div class="card mb-3">
                     <div class="card-body">
-                        <h5>{exp.get('title', 'Position')}</h5>
-                        <h6 class="text-muted">{exp.get('organization', 'Organization')}</h6>
-                        <p><small><i class="fas fa-calendar"></i> {exp.get('date', 'Date')} | <i class="fas fa-map-marker-alt"></i> {exp.get('location', 'Location')}</small></p>
-                        <p>{exp.get('description', 'No description')}</p>
-                        <span class="badge bg-primary">{exp.get('type', 'experience').title()}</span>
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div>
+                                <h5>{exp.get('title', 'Position')}</h5>
+                                <h6 class="text-muted">{exp.get('organization', 'Organization')}</h6>
+                                <p><small><i class="fas fa-calendar"></i> {exp.get('date', 'Date')} | <i class="fas fa-map-marker-alt"></i> {exp.get('location', 'Location')}</small></p>
+                                <p>{exp.get('description', 'No description')}</p>
+                                <span class="badge bg-primary">{exp.get('type', 'experience').title()}</span>
+                            </div>
+                            <button class="btn btn-danger btn-sm" onclick="deleteExperience({exp.get('id')})">
+                                <i class="fas fa-trash"></i> Delete
+                            </button>
+                        </div>
                     </div>
                 </div>
             """
@@ -568,21 +579,204 @@ def admin_experience():
                 <div class="alert alert-info text-center">
                     <i class="fas fa-briefcase fa-2x mb-3"></i>
                     <h5>No experience entries yet!</h5>
-                    <p>Your conferences, work experience, and volunteer activities will appear here when you add them through the complete admin interface.</p>
+                    <p>Click "Add Experience" to get started.</p>
                 </div>
         """
     
     html += """
-                <div class="alert alert-info">
-                    <i class="fas fa-plus-circle"></i>
-                    <strong>Enhanced Features:</strong> The complete admin interface includes forms to add conferences, work experience, internships, and volunteer activities with detailed categorization.
-                </div>
+                <div id="message" class="alert mt-3" style="display:none;"></div>
             </div>
         </div>
+        
+        <script>
+            async function deleteExperience(id) {
+                if (!confirm('Are you sure you want to delete this experience?')) return;
+                
+                try {
+                    const response = await fetch(`/api/experience?id=${id}`, {method: 'DELETE'});
+                    const result = await response.json();
+                    
+                    if (result.success) {
+                        location.reload();
+                    } else {
+                        alert('Error: ' + result.error);
+                    }
+                } catch (error) {
+                    alert('Error: ' + error.message);
+                }
+            }
+        </script>
     </body>
     </html>
     """
     return html
+
+@app.route('/admin/experience/edit')
+def admin_experience_form():
+    """Experience add/edit form"""
+    if 'authenticated' not in session:
+        return redirect(url_for('admin_login'))
+    
+    html = """
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>Add Experience</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+        <style>
+            body { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; }
+            .admin-card { background: white; border-radius: 15px; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1); }
+        </style>
+    </head>
+    <body>
+        <div class="container mt-4">
+            <div class="admin-card p-4">
+                <h2><i class="fas fa-plus"></i> Add Experience</h2>
+                <a href="/admin/experience" class="btn btn-secondary mb-3"><i class="fas fa-arrow-left"></i> Back</a>
+                
+                <form id="experienceForm">
+                    <div class="mb-3">
+                        <label class="form-label"><i class="fas fa-briefcase"></i> Title</label>
+                        <input type="text" class="form-control" id="title" name="title" placeholder="e.g., Software Engineer" required>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label class="form-label"><i class="fas fa-building"></i> Organization</label>
+                        <input type="text" class="form-control" id="organization" name="organization" placeholder="e.g., Tech Company" required>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label"><i class="fas fa-calendar"></i> Date</label>
+                            <input type="text" class="form-control" id="date" name="date" placeholder="e.g., Jan 2024 - Present" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label"><i class="fas fa-map-marker-alt"></i> Location</label>
+                            <input type="text" class="form-control" id="location" name="location" placeholder="e.g., Remote" required>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label class="form-label"><i class="fas fa-list"></i> Type</label>
+                        <select class="form-select" id="type" name="type" required>
+                            <option value="">Select type...</option>
+                            <option value="work">Work Experience</option>
+                            <option value="conference">Conference</option>
+                            <option value="volunteer">Volunteer</option>
+                            <option value="internship">Internship</option>
+                            <option value="award">Award</option>
+                        </select>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label class="form-label"><i class="fas fa-align-left"></i> Description</label>
+                        <textarea class="form-control" id="description" name="description" rows="4" placeholder="Describe your experience..." required></textarea>
+                    </div>
+                    
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-success btn-lg">
+                            <i class="fas fa-save"></i> Add Experience
+                        </button>
+                    </div>
+                </form>
+                
+                <div id="message" class="alert mt-3" style="display:none;"></div>
+            </div>
+        </div>
+        
+        <script>
+            document.getElementById('experienceForm').addEventListener('submit', async (e) => {
+                e.preventDefault();
+                
+                const formData = {
+                    title: document.getElementById('title').value,
+                    organization: document.getElementById('organization').value,
+                    date: document.getElementById('date').value,
+                    location: document.getElementById('location').value,
+                    type: document.getElementById('type').value,
+                    description: document.getElementById('description').value
+                };
+                
+                try {
+                    const response = await fetch('/api/experience', {
+                        method: 'POST',
+                        headers: {'Content-Type': 'application/json'},
+                        body: JSON.stringify(formData)
+                    });
+                    
+                    const result = await response.json();
+                    const msgDiv = document.getElementById('message');
+                    
+                    if (result.success) {
+                        msgDiv.className = 'alert alert-success';
+                        msgDiv.textContent = result.message;
+                        document.getElementById('experienceForm').reset();
+                        setTimeout(() => window.location.href = '/admin/experience', 1500);
+                    } else {
+                        msgDiv.className = 'alert alert-danger';
+                        msgDiv.textContent = result.error;
+                    }
+                    msgDiv.style.display = 'block';
+                } catch (error) {
+                    const msgDiv = document.getElementById('message');
+                    msgDiv.className = 'alert alert-danger';
+                    msgDiv.textContent = 'Error: ' + error.message;
+                    msgDiv.style.display = 'block';
+                }
+            });
+        </script>
+    </body>
+    </html>
+    """
+    return html
+
+@app.route('/api/experience', methods=['GET', 'POST', 'DELETE'])
+def api_experience():
+    """API endpoint to manage experience entries"""
+    if request.method == 'GET':
+        data = load_data()
+        return jsonify(data.get('experience', []))
+    
+    elif request.method == 'POST':
+        try:
+            data = load_data()
+            new_experience = request.get_json()
+            
+            # Add ID if not present
+            if 'id' not in new_experience:
+                new_experience['id'] = max([e.get('id', 0) for e in data.get('experience', [])], default=0) + 1
+            
+            data['experience'].append(new_experience)
+            
+            if save_data(data):
+                return jsonify({
+                    'success': True,
+                    'message': 'Experience added successfully!',
+                    'experience': new_experience
+                }), 201
+            else:
+                return jsonify({'success': False, 'error': 'Failed to save data'}), 500
+        except Exception as e:
+            return jsonify({'success': False, 'error': str(e)}), 400
+    
+    elif request.method == 'DELETE':
+        try:
+            experience_id = request.args.get('id')
+            data = load_data()
+            
+            # Remove experience entry by ID
+            data['experience'] = [e for e in data.get('experience', []) if str(e.get('id')) != str(experience_id)]
+            
+            if save_data(data):
+                return jsonify({
+                    'success': True,
+                    'message': 'Experience removed successfully!'
+                }), 200
+            else:
+                return jsonify({'success': False, 'error': 'Failed to save data'}), 500
+        except Exception as e:
+            return jsonify({'success': False, 'error': str(e)}), 400
 
 @app.route('/admin/backup')
 def admin_backup():

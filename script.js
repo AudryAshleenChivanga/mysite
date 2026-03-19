@@ -12,6 +12,8 @@ document.addEventListener('DOMContentLoaded', () => {
     initContactForm();
     initCursorFollower();
     initGallery();
+    loadExperience();
+    loadProjects();
     
     console.log('%c✨ Welcome to Audry\'s Portfolio', 'color: #d4a853; font-size: 16px; font-weight: bold;');
     console.log('%cBuilding technology that transforms lives across Africa.', 'color: #a0a0a8; font-size: 14px;');
@@ -175,7 +177,9 @@ function initAnimations() {
         .contact-card,
         .education-card,
         .startup-content,
-        .research-callout
+        .research-callout,
+        .experience-item,
+        .project-card
     `);
     
     revealElements.forEach(el => {
@@ -241,6 +245,152 @@ function animateCounter(element, target) {
             element.textContent = Math.floor(current) + '+';
         }
     }, stepDuration);
+}
+
+/**
+ * Load Experience Data Module
+ */
+async function loadExperience() {
+    try {
+        const response = await fetch('/api/data');
+        const data = await response.json();
+        const experiences = data.experience || [];
+        
+        // Find the container where you want to display experience
+        const experienceContainer = document.getElementById('experience-section');
+        if (!experienceContainer) {
+            console.warn('Experience section container not found');
+            return;
+        }
+        
+        if (experiences.length === 0) {
+            experienceContainer.innerHTML = '<p class="text-muted text-center py-5">No experience entries yet.</p>';
+            return;
+        }
+        
+        let html = '';
+        experiences.forEach(exp => {
+            html += `
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <h5 class="mb-1">${exp.title || 'Position'}</h5>
+                        <h6 class="text-muted">${exp.organization || 'Organization'}</h6>
+                    </div>
+                    <div class="experience-meta mb-2">
+                        <span class="badge bg-primary">${(exp.type || 'experience').toUpperCase()}</span>
+                        <small class="text-muted">
+                            <i class="fas fa-calendar"></i> ${exp.date || 'Date'} | 
+                            <i class="fas fa-map-marker-alt"></i> ${exp.location || 'Location'}
+                        </small>
+                    </div>
+                    <p class="experience-description">${exp.description || 'No description'}</p>
+                </div>
+            `;
+        });
+        
+        experienceContainer.innerHTML = html;
+        
+        // Trigger animations for newly added elements
+        const experienceItems = experienceContainer.querySelectorAll('.experience-item');
+        experienceItems.forEach(item => {
+            item.classList.add('reveal');
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px 0px -100px 0px',
+                threshold: 0.1
+            };
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, observerOptions);
+            observer.observe(item);
+        });
+    } catch (error) {
+        console.error('Error loading experience:', error);
+        const experienceContainer = document.getElementById('experience-section');
+        if (experienceContainer) {
+            experienceContainer.innerHTML = '<p class="text-danger text-center">Error loading experience data</p>';
+        }
+    }
+}
+
+/**
+ * Load Projects Data Module
+ */
+async function loadProjects() {
+    try {
+        const response = await fetch('/api/data');
+        const data = await response.json();
+        const projects = data.projects || [];
+        
+        // Find the container where you want to display projects
+        const projectsContainer = document.getElementById('projects-section');
+        if (!projectsContainer) {
+            console.warn('Projects section container not found');
+            return;
+        }
+        
+        if (projects.length === 0) {
+            projectsContainer.innerHTML = '<p class="text-muted text-center py-5">No projects yet.</p>';
+            return;
+        }
+        
+        let html = '';
+        projects.forEach(project => {
+            const featuredBadge = project.featured ? `<span class="badge bg-warning text-dark"><i class="fas fa-star"></i> Featured</span>` : '';
+            const awardBadge = project.award ? `<span class="badge bg-success">${project.award}</span>` : '';
+            const projectUrl = project.url ? `<a href="${project.url}" target="_blank" class="btn btn-sm btn-outline-primary mt-3"><i class="fas fa-external-link-alt"></i> View Project</a>` : '';
+            
+            html += `
+                <div class="col-lg-6 mb-4">
+                    <div class="project-card h-100">
+                        <div class="project-header">
+                            <h5>${project.name || 'Project'}</h5>
+                            <div class="project-badges">
+                                ${featuredBadge}
+                                ${awardBadge}
+                            </div>
+                        </div>
+                        <p class="project-description">${project.description || 'No description'}</p>
+                        <div class="project-tags mb-3">
+                            ${(project.tags || []).map(tag => `<span class="badge bg-light text-dark">${tag}</span>`).join('')}
+                        </div>
+                        ${projectUrl}
+                    </div>
+                </div>
+            `;
+        });
+        
+        projectsContainer.innerHTML = `<div class="row">${html}</div>`;
+        
+        // Trigger animations for newly added elements
+        const projectItems = projectsContainer.querySelectorAll('.project-card');
+        projectItems.forEach(item => {
+            item.classList.add('reveal');
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px 0px -100px 0px',
+                threshold: 0.1
+            };
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, observerOptions);
+            observer.observe(item);
+        });
+    } catch (error) {
+        console.error('Error loading projects:', error);
+        const projectsContainer = document.getElementById('projects-section');
+        if (projectsContainer) {
+            projectsContainer.innerHTML = '<p class="text-danger text-center">Error loading projects data</p>';
+        }
+    }
 }
 
 /**
@@ -439,7 +589,7 @@ function initCursorFollower() {
     animateCursor();
     
     // Hover effects
-    const interactiveElements = document.querySelectorAll('a, button, .gallery-item, .achievement-card, .timeline-content');
+    const interactiveElements = document.querySelectorAll('a, button, .gallery-item, .achievement-card, .timeline-content, .experience-item, .project-card');
     
     interactiveElements.forEach(el => {
         el.addEventListener('mouseenter', () => cursor.classList.add('active'));
