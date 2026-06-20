@@ -131,13 +131,15 @@ function initScrollEffects() {
         });
     });
     
-    // Parallax effect for hero
+    // Parallax effect for hero (disabled on mobile to avoid scroll instability)
     const hero = document.querySelector('.hero');
     
     window.addEventListener('scroll', () => {
-        if (hero && window.scrollY < window.innerHeight) {
+        if (hero && window.innerWidth > 768 && window.scrollY < window.innerHeight) {
             const scrolled = window.scrollY;
             hero.style.transform = `translateY(${scrolled * 0.3}px)`;
+        } else if (hero) {
+            hero.style.transform = 'translateY(0)';
         }
     });
 }
